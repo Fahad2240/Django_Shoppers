@@ -17,5 +17,6 @@ class Item(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     image=models.ImageField(upload_to='product_images',blank=True,null=True)
     created_by=models.ForeignKey(User,related_name='name',on_delete=models.CASCADE)
+    is_sold=models.BooleanField(default='False')
     def __str__(self) -> str:
         return self.name

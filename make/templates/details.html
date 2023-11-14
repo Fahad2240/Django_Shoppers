@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}{{item.name}}{% endblock title %}
+
+{% block content %}
+<div class="mt-6 pt-12 grid grid-cols-6 gap-5 h-fit">
+    <div class="col-span-2 rounded">
+        <img src="{{item.image.url}}" alt="">
+    </div>
+    <div class="col-span-4 p-5 bg-purple-600 rounded-xl text-dark ">
+        <h1 class="mb-5 text-3xl">
+            <strong class="font-semibold">{{item.name}}</strong>
+        </h1>
+        <p class="text-xl"> <strong class="font-semibold">Price : </strong>{{item.price}}</p>
+        <p class="text-xl"><strong class="font-semibold">Vendor: </strong>{{item.created_by}}</p>
+        {% if item.description %}
+        <p class="text-xl"><strong class="font-semibold">Product Details : </strong><br>
+            <span>{{item.description}}</span>
+        </p>
+        <a href="#" class=" bg-purple-900 inline-block mt-6 px-6 py-3 text-lg font-semibold text-white rounded-xl ">Contact Vendor</a>
+        {% endif %}
+    </div>
+</div>
+<style>
+  .bg-indigo-700 {
+    margin: 0 auto;
+  }
+</style>
+{% if related_items %}
+<div class="mt-5 pt-24  px-5 py-5 rounded-full-xl flex flex-col justify-between gap-8">
+    <div class="bg-indigo-700 w-56 h-10 rounded-xl py-1 " >
+            <h2 class="mb-10 text-center text-2xl text-white content-center">Related Products</h2>
+    </div>
+    {% for pro in related_items %}
+    <div class="mt-6 pt-12 grid grid-cols-6 gap-5 h-fit">
+        <div class="col-span-2 rounded">
+            <img src="{{pro.image.url}}" alt="">
+        </div>
+        <div class="col-span-4 p-5 bg-purple-600 rounded-xl text-dark ">
+                <h1 class="mb-5 text-3xl">
+                    <strong class="font-semibold">{{pro.name}}</strong>
+                </h1>
+                <p class="text-xl"> <strong class="font-semibold">Price : </strong>{{pro.price}}</p>
+                <p class="text-xl"><strong class="font-semibold">Vendor: </strong>{{pro.created_by}}</p>
+                {% if pro.description %}
+                <p class="text-xl"><strong class="font-semibold">Product Details : </strong><br>
+                    <span>{{pro.description}}</span>
+                </p>
+                <a href="#" class=" bg-purple-900 inline-block mt-6 px-6 py-3 text-lg font-semibold text-white rounded-xl ">Contact Vendor</a>
+                {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

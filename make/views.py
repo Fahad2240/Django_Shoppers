@@ -10,3 +10,6 @@ def index(request):
         'categories':categories,'items':items})
 def contact(request):
     return render(request,'contact.html')
+# def details(request,pk):
+#     item=get_object_or_404(Item,pk=pk)
+#     return render(request,'details.html',{'item':item})

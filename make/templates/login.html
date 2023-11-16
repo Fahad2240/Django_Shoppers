@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Sign Up{% endblock %}
+{% block title %}Sign In{% endblock %}
 {% block content %}
 <!-- <div class="mt-24 fixed"> -->
 <!-- <div class="mt-6"></div> -->
 <!-- <div class=" "> -->
     <div class=" absolute  w-1/2 top-20 mx-80 p-6  bg-gray-100 rounded-xl ">
-        <h1 class="mb-6 text-3xl font-semibold ">Sign Up</h1>
+        <h1 class="mb-6 text-3xl font-semibold ">Sign In</h1>
         <form method="post" action=".">
             {% csrf_token %}
             <!-- {{form.as_p}} -->
@@ -16,22 +16,10 @@
                 {{form.username}}
             </div>
             <div class="mb-3">
-                <label class="inline-block mb-2">Email</label>
-                <br>
-                <!-- <input placeholder="add_your_email" class="rounded border-black-200 w-1/2 py-1 px-3" id="your_name" type="text" name="your_email" maxlength="100" required> -->
-                {{form.email}}
-            </div>
-            <div class="mb-3">
                 <label class="inline-block mb-2">Password</label>
                 <br>
                 <!-- <input placeholder="password" class="rounded border-black-200 w-1/2 py-1 px-3" id="your_name" type="text" name="Password1" maxlength="100" required> -->
-                {{form.password1}}
-            </div>
-            <div class="mb-3">
-                <label class="inline-block mb-2">Confirm Password</label>
-                <br>
-                <!-- <input placeholder="confirm_password" id="your_name " type="text" name="Password2 maxlength="100" class="w-1/2 py-1 px-3 rounded mb-6 border-black-200" required> -->
-                {{form.password2}}
+                {{form.password}}
             </div>
             {% if form.errors or form.non_field_errors %}
             <div class="mb-3 rounded-xl p-6 bg-purple-700">
@@ -41,7 +29,7 @@
                 {{form.non_field_errors}}
             </div> 
             {% endif %}
-            <button class="py-2 px-8 bg-purple-900 hover:bg-purple-700 rounded-xl text-white">Register</button>
+            <button class="py-2 px-8 bg-purple-900 hover:bg-purple-700 rounded-xl text-white">Login</button>
         </form>
         
     </div>

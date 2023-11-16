@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}Shoppers{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<nav class="-mt-6 fixed  w-full px-5 py-5 text-xl border-b-black flex items-center justify-between bg-purple-700">
-    <a href="/" class="text-xl text-white">ShoPPeRs</a>
-    <div>
-        <a href="#" class=" font-bold text-lg  px-5 py-3 rounded-xl  text-white bg-green-800 hover:bg-green-900">Sign Up</a>
+<nav class="-mt-6 fixed   w-full px-5 py-5 text-xl border-b-black flex items-center justify-between bg-purple-700">
+    <a href="/" class="text-xl text-white mt-4">ShoPPeRs</a>
+    <div class="mt-4">
+        <a href="{% url 'make:signup' %}" class=" font-bold text-lg  px-5 py-3 rounded-xl  text-white bg-green-800 hover:bg-green-900">Sign Up</a>
         <a href="#" class="font-bold bg-purple-900 hover:bg-indigo-900 px-5 py-3 rounded-xl  text-white">Sign In</a>
     </div>
 </nav>

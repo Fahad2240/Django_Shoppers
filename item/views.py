@@ -3,6 +3,7 @@ from .models import *
 
 def details(request,id):
     item=get_object_or_404(Item,pk=id)
+    print(item.id)
     related_items=Item.objects.filter(category=item.category,is_sold=False).exclude(pk=id)
     # set=item.id
     print(related_items)

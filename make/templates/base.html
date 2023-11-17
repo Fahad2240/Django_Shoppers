@@ -9,8 +9,13 @@
 <nav class="-mt-6 fixed   w-full px-5 py-5 text-xl border-b-black flex items-center justify-between bg-purple-700">
     <a href="/" class="text-xl text-white mt-3">ShoPPeRs</a>
     <div class="mt-3">
+        {% if request.user.is_authenticated %}
+        <a href="#" class=" font-bold text-lg  px-5 py-3 rounded-xl  text-white bg-green-800 hover:bg-green-900">Go to Dashboard</a>
+        <a href="{% url 'make:logout' %}" class="font-bold bg-red-900 hover:bg-red-800 px-5 py-3 rounded-xl  text-white">Log Out</a>
+        {% else %}
         <a href="{% url 'make:signup' %}" class=" font-bold text-lg  px-5 py-3 rounded-xl  text-white bg-green-800 hover:bg-green-900">Sign Up</a>
         <a href="{% url 'make:login' %}" class="font-bold bg-purple-900 hover:bg-indigo-900 px-5 py-3 rounded-xl  text-white">Sign In</a>
+        {% endif %}
     </div>
 </nav>
 <body class="bg-purple-500">

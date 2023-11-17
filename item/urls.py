@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import details
+from . import views
 app_name='item'
 urlpatterns=[
-    path('items/<int:id>/', details, name='details')
+    path('add/',views.new,name='add'),
+    path('items/<int:pk>/',views.details, name='details')
 ]

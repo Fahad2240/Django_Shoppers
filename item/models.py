@@ -10,7 +10,7 @@ class category(models.Model):
     def __str__(self) -> str:
         return self.name
 class Item(models.Model):
-    id=models.AutoField(primary_key=True)
+    # id=models.AutoField(primary_key=True)
     category=models.ForeignKey(category,related_name='items',on_delete=models.CASCADE)
     name=models.CharField(max_length=255)
     description=models.TextField(blank=True,null=True)

@@ -23,7 +23,7 @@
                 <!-- {% if categories.name in item.category.name %} -->
                 <!-- <div class="grid grid-cols-3 gap-2"> -->
         <div class="w-32">
-            <a href="{% url 'item:details' item.id %}"><img src="{{item.image.url}}" alt="" class="w-32 h-32 ">
+            <a href="{% url 'item:details' item.pk %}"><img src="{{item.image.url}}" alt="" class="w-32 h-32 ">
             </a>
             <p class="text-white">{{item.name}}</p>
         </div> 

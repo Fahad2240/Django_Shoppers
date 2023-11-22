@@ -5,15 +5,18 @@
   .bg-indigo-700 {
     margin: 0 auto;
   }
+  /* .bg-gray-50{
+    margin: 0 auto;
+  } */
 </style>
-<div class="mt-5 pt-24  px-5 py-5 rounded-full-xl flex flex-col justify-between items-center gap-6">
+<div class="mt-5 pt-24  px-5 py-5 rounded-full-xl flex flex-col justify-between  gap-3">
     
         <!-- <div class="bg-red-600 h-10 rounded-xl px-4 py-1"><h2 class="mb-12 text-2xl">Categories</h2></div> -->
 
         <div class="bg-indigo-700 w-56 h-10 rounded-xl py-1 content-center" >
             <h2 class="mb-10 text-center text-2xl text-white content-center">New Products</h2>
         </div>
-        <div class="mx-20 grid grid-cols-4 justify-around gap-24">
+        <div class="outline-offset-8  grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 justify-around gap-2 ">
         {% for item in items %}
         <!-- <div class="flex flex-col px-5 gap-52 mt-16"> -->
             <!-- {% for categories in categories %} -->
@@ -22,10 +25,14 @@
                 
                 <!-- {% if categories.name in item.category.name %} -->
                 <!-- <div class="grid grid-cols-3 gap-2"> -->
-        <div class="w-32">
-            <a href="{% url 'item:details' item.pk %}"><img src="{{item.image.url}}" alt="" class="w-32 h-32 ">
-            </a>
-            <p class="text-white">{{item.name}}</p>
+        <div class="w-full h-full bg-gray-50 rounded-3xl flex flex-col justify-around items-center">
+            <div>
+              <a href="{% url 'item:details' item.pk %}"><img src="{{item.image.url}}" alt="" class="w-56 h-56 ">
+              </a>
+            </div>
+            <div>
+              <p class="text-dark mx-20">{{item.name}}</p>
+            </div>
         </div> 
                 <!-- </div> -->
                 <!-- {% endif %} -->

@@ -16,8 +16,16 @@
         <p class="text-xl"><strong class="font-semibold">Product Details : </strong><br>
             <span>{{item.description}}</span>
         </p>
-        <a href="#" class=" bg-purple-900 inline-block mt-6 px-6 py-3 text-lg font-semibold text-white rounded-xl ">Contact Vendor</a>
         {% endif %}
+        {% if item.created_by == request.user %}
+            <div>
+                <button class="mt-5 px-6 py-2 bg-slate-700 text-white font-semibold">Edit</button>
+                <button class="mt-5 px-6 py-2 bg-red-900 text-white font-semibold">Delete</button>
+            </div>
+        {% else %}
+            <a href="#" class=" bg-purple-900 inline-block mt-6 px-6 py-3 text-lg font-semibold text-white rounded-xl ">Contact Vendor</a>
+        {% endif %}
+        
     </div>
 </div>
 <style>
@@ -45,7 +53,15 @@
                 <p class="text-xl"><strong class="font-semibold">Product Details : </strong><br>
                     <span>{{pro.description}}</span>
                 </p>
-                <a href="#" class=" bg-purple-900 inline-block mt-6 px-6 py-3 text-lg font-semibold text-white rounded-xl ">Contact Vendor</a>
+                <!-- <a href="#" class=" bg-purple-900 inline-block mt-6 px-6 py-3 text-lg font-semibold text-white rounded-xl ">Contact Vendor</a> -->
+                {% endif %}
+                {% if pro.created_by == request.user %}
+                <div>
+                    <button class="mt-5 px-6 py-2 bg-slate-700 text-white font-semibold">Edit</button>
+                    <button class="mt-5 px-6 py-2 bg-red-900 text-white font-semibold">Delete</button>
+                </div>
+                {% else %}
+                    <a href="#" class=" bg-purple-900 inline-block mt-6 px-6 py-3 text-lg font-semibold text-white rounded-xl ">Contact Vendor</a>
                 {% endif %}
         </div>
     </div>

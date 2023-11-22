@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'make',
     'item',
+    'dashboard',
     # 'mainapp',
 ]
 

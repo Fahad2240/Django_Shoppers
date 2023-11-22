@@ -1,0 +1,29 @@
+{% extends 'make\base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<style>
+  .bg-indigo-700 {
+    margin: 0 auto;
+  }
+</style>
+<div class="mt-5 pt-24  px-5 py-5 rounded-full-xl flex flex-col justify-between items-center gap-6">
+    
+        <!-- <div class="bg-red-600 h-10 rounded-xl px-4 py-1"><h2 class="mb-12 text-2xl">Categories</h2></div> -->
+
+        <div class="bg-indigo-700 w-56 h-10 rounded-xl py-1 content-center" >
+            <h2 class="mb-10 text-center text-2xl text-white content-center">Your Products</h2>
+        </div>
+        <div class="mx-20 grid grid-cols-4 justify-around gap-24">
+        {% for item in items %}
+          <div class="w-32">
+          <a href="{% url 'item:details' item.pk %}"><img src="{{item.image.url}}" alt="" class="w-32 h-32 ">
+          </a>
+          <p class="text-white">{{item.name}}</p>
+          </div> 
+        {% endfor %}
+        </div>
+   
+       
+</div>
+
+{% endblock %}

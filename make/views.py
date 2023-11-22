@@ -7,11 +7,11 @@ from item.models import Item, category
 def index(request):
     items=Item.objects.filter(is_sold=False)[:9]
     categories=category.objects.all()
-    return render(request,'index.html',{
+    return render(request,'make\index.html',{
         'categories':categories,'items':items})
     
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'make\contact.html')
 
 def signup(request):
     if request.method=='POST':
@@ -21,7 +21,7 @@ def signup(request):
             return redirect('/login/')
     else:
         form=SignupForm()
-    return render(request,'signup.html',{'form':form})
+    return render(request,'make\signup.html',{'form':form})
 # def details(request,pk):
 #     item=get_object_or_404(Item,pk=pk)
 #     return render(request,'details.html',{'item':item})

@@ -2,7 +2,7 @@
 {% block title %}{{title}}{% endblock %}
 
 {% block content %}
-<h1 class='mb-5 text-3xl'>{{title}}</h1>
+<h1 class='pt-24 mb-5 text-3xl text-center text-white'>{{title}}</h1>
 <form action="." method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
@@ -15,7 +15,10 @@
             {% endfor %}
             {{form.non_field_errors}}
         </div> 
+    {% elif form.add_new %}
+        <button type="submit" class="mt-5 py-2 px-8 bg-purple-900 hover:bg-purple-700 rounded-xl text-white">Create Item</button>
+    {% else %}
+        <button type="submit" class="mt-5 py-2 px-8 bg-purple-900 hover:bg-purple-700 rounded-xl text-white">Update Item</button>
     {% endif %}
-    <button type="submit" class="mt-5 py-2 px-8 bg-purple-900 hover:bg-purple-700 rounded-xl text-white">Create Item</button>
 </form>
 {% endblock %}

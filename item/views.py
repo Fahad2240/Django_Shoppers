@@ -40,3 +40,11 @@ def edit(request,pk):
     else:
         form =EditItemform(instance=item)
     return render(request,'item\item_forms.html',{'form':form,'title':'Edit Item'})
+
+
+def items(request):
+    items=Item.objects.filter(is_sold=False)
+    category_id=request.GET.get('category',0)
+    categories=category.objects.filter(category_id=category_id)
+    return render(request,'item\items.html',{'items':items})
+   

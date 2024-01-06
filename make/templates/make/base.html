@@ -10,6 +10,7 @@
     <a href="/" class="text-xl text-white mt-3">ShoPPeRs</a>
     <div class="space-x-6 ">
         <a href="{% url 'item:add' %}" class="font-semibold text-gray-100 hover:text-gray-200">+Item</a>
+        <a href="{% url 'item:items' %}" class="font-semibold text-gray-100 hover:text-gray-200">Filter</a>
         {% if request.user.is_authenticated %}
         <a href="{% url 'dashboard:index' %}" class=" font-bold text-lg  px-5 py-3 rounded-xl  text-white bg-green-800 hover:bg-green-900">Go to Dashboard</a>
         <a href="{% url 'make:logout' %}" class="font-bold bg-red-900 hover:bg-red-800 px-5 py-3 rounded-xl  text-white">Log Out</a>

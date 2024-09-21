@@ -43,8 +43,13 @@ def edit(request,pk):
 
 
 def items(request):
-    items=Item.objects.filter(is_sold=False)
-    category_id=request.GET.get('category',0)
-    categories=category.objects.filter(category_id=category_id)
-    return render(request,'item\items.html',{'items':items})
+    category_id = request.GET.get('category', 0)  # Get the category_id from the request query parameters
+    if category_id:  # If category_id is provided
+        categories = category.objects.filter(category_id=category_id)  # Filter categories based on the provided category_id
+    else:
+        categories = category.objects.all()  # If no category_id is provided, get all categories
+
+    items = Item.objects.filter(is_sold=False)  # Get all items that are not sold
+
+    return render(request, 'item\items.html', {'items': items, 'categories': categories})
    
